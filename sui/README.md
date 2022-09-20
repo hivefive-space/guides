@@ -128,6 +128,25 @@ Save this and find your wallet address in the extension window.
   <img width="600" height="auto" src="https://github.com/hivefive-space/guides/blob/db9d06176315e6f71f66a06d1dd7f5412c4e06ad/sui/img/mnemonic.png">
 </p>
 
+### 4. Connect wallet to Sui node
+```
+sui keytool import "<YOUR_MNEMONIC_PHRASE>" ed25519
+```
+
+### 5. Get your wallet address
+```
+sui client active-address
+```
+
+### 6. Top up your wallet
+Navigate to [Sui Discord](https://discord.gg/sui) `#devnet-faucet` channel and top up your wallet
+```
+!faucet <YOUR_WALLET_ADDRESS>
+```
+
+### 7. Check balance
+You can check your balance at `https://explorer.devnet.sui.io/addresses/<YOUR_WALLET_ADDRESS>`.
+
 ## Useful commands
 Check status
 ```
