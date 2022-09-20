@@ -125,7 +125,7 @@ Create a new account by clicking on the Application -> Get started -> Create new
 You will be prompted with a Seed phrase, which is the only way to recover your account.
 Save this and find your wallet address in the extension window.
 <p align="center">
-  <img width="600" height="auto" src="https://user-images.githubusercontent.com/50621007/174559198-c1f612e5-bba2-4817-95a8-8a3c3659a2aa.png">
+  <img width="600" height="auto" src="https://github.com/hivefive-space/guides/blob/db9d06176315e6f71f66a06d1dd7f5412c4e06ad/sui/img/mnemonic.png">
 </p>
 
 ## Useful commands
@@ -147,15 +147,16 @@ sui --version
 ## Update Sui node
 ```
 sudo systemctl stop suid
-wget -qO $HOME/.sui/fullnode.yaml https://github.com/MystenLabs/sui/raw/main/crates/sui-config/data/fullnode-template.yaml
-wget -qO $HOME/.sui/genesis.blob https://github.com/MystenLabs/sui-genesis/raw/main/devnet/genesis.blob
-yq -i ".db-path = \"$HOME/.sui/db\"" $HOME/.sui/fullnode.yaml
-yq -i '.metrics-address = "0.0.0.0:9184"' $HOME/.sui/fullnode.yaml
-yq -i '.json-rpc-address = "0.0.0.0:9000"' $HOME/.sui/fullnode.yaml
-yq -i ".genesis.genesis-file-location = \"$HOME/.sui/genesis.blob\"" $HOME/.sui/fullnode.yaml
 rm -rf $HOME/.sui/db
-version=$(wget -qO- https://api.github.com/repos/SecorD0/Sui/releases/latest | jq -r ".tag_name")
-wget -qO- "https://github.com/SecorD0/Sui/releases/download/${version}/sui-linux-amd64-${version}.tar.gz" | sudo tar -C /usr/local/bin/ -xzf -
+wget -qO $HOME/.sui/genesis.blob https://github.com/MystenLabs/sui-genesis/raw/main/devnet/genesis.blob
+source $HOME/.cargo/env
+cd $HOME/sui
+git remote add upstream https://github.com/MystenLabs/sui
+git fetch upstream
+git stash
+git checkout --track upstream/devnet
+cargo build --release
+mv $HOME/sui/target/release/{sui,sui-node,sui-faucet} /usr/local/bin/
 sudo systemctl restart suid
 ```
 
@@ -163,5 +164,8 @@ sudo systemctl restart suid
 ```
 sudo systemctl stop suid
 sudo systemctl disable suid
-sudo rm -rf $HOME/.sui /usr/local/bin/sui*
+sudo rm -rf $HOME/{sui,.sui} 
+sudo rm -rf /usr/bin/{sui,sui-node,sui-faucet}
+sudo rm -rf /etc/systemd/system/suid.service
+sudo systemctl daemon-reload
 ```
