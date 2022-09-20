@@ -1,8 +1,9 @@
 <p style="font-size:14px" align="right">
-<a href="https://hetzner.cloud/?ref=jQhYwCyb1jPf" target="_blank">Deploy your VPS using our referral link to get 20€ bonus
+<a href="https://hetzner.cloud/?ref=jQhYwCyb1jPf" target="_blank">Deploy your VPS using our referral link to get 20€ bonus</a>
 </p>
 
 # <img width="25" height="auto" src="https://user-images.githubusercontent.com/50621007/174559198-c1f612e5-bba2-4817-95a8-8a3c3659a2aa.png"> Sui node setup
+Sui is a decentralized, high-bandwidth, low-latency smart contract platform using the Move language.
 
 ## Information
 - Official manual: https://docs.sui.io/build/fullnode
