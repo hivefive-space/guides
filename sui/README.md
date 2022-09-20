@@ -1,5 +1,5 @@
 
-# <img height="25" height="auto" src="https://user-images.githubusercontent.com/50621007/174559198-c1f612e5-bba2-4817-95a8-8a3c3659a2aa.png"> Sui node setup
+# <img width="25" height="auto" src="https://user-images.githubusercontent.com/50621007/174559198-c1f612e5-bba2-4817-95a8-8a3c3659a2aa.png"> Sui node setup
 
 ## Information
 - Official manual: https://docs.sui.io/build/fullnode
@@ -99,21 +99,34 @@ You should see something similar in the output:
 }
 ```
 
+### 9. Check your node health status
+Enter your node IP into https://node.sui.zvalid.com/
+Healthy node should look like this:
+<p align="center">
+  <img width="800" height="auto" src="https://github.com/hivefive-space/guides/blob/a0dc6b22a21b789e338600f918963d8d895e1735/sui/img/healthcheck.png">
+</p>
+
 ## Connect wallet
 Sui Wallet is an open-sourced wallet for SUI network, allowing users the ability to create an address, view and manage assets on the Sui network, and interact with dApps.
 
 ### 1. Chrome extension
 Download the Chrome extension from the store using [this link](https://chrome.google.com/webstore/detail/sui-wallet/opcgpfmipidbgpenhmajoajpbobppdil).
+<p align="center">
+  <img width="800" height="auto" src="https://github.com/hivefive-space/guides/blob/a0dc6b22a21b789e338600f918963d8d895e1735/sui/img/chrome_extension.png">
+</p>
 
 ### 2. Create an account
 Create a new account by clicking on the Application -> Get started -> Create new account.
+<p align="center">
+  <img width="600" height="auto" src="https://github.com/hivefive-space/guides/blob/a0dc6b22a21b789e338600f918963d8d895e1735/sui/img/create_account.png">
+</p>
 
-### 3. Terms of service
-Agree to the terms of service and click "Create".
-
-### 4. Seed phrase
+### 3. Seed phrase
 You will be prompted with a Seed phrase, which is the only way to recover your account.
 Save this and find your wallet address in the extension window.
+<p align="center">
+  <img width="600" height="auto" src="https://user-images.githubusercontent.com/50621007/174559198-c1f612e5-bba2-4817-95a8-8a3c3659a2aa.png">
+</p>
 
 ## Useful commands
 Check status
