@@ -75,7 +75,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-### 7. Start sui node
+### 7. Start Sui node
 ```
 sudo systemctl daemon-reload
 sudo systemctl enable suid
