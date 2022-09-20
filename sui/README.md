@@ -19,7 +19,7 @@ sudo apt update && sudo apt upgrade -y
 
 ### 2. Install dependencies
 ```
-sudo apt install wget jq git libclang-dev ca-certificates build-essential libssl-dev pkg-config libclang-dev cmake -y
+sudo apt install wget jq git libclang-dev ca-certificates build-essential libssl-dev pkg-config cmake -y
 ```
 
 ### 3. Install Rust
@@ -146,6 +146,65 @@ Navigate to [Sui Discord](https://discord.gg/sui) `#devnet-faucet` channel and t
 
 ### 7. Check balance
 You can check your balance at `https://explorer.devnet.sui.io/addresses/<YOUR_WALLET_ADDRESS>`.
+
+## Operations with objects
+
+### 1. Create an NFT example
+```
+sui client create-example-nft
+```
+You should see output like this:
+```
+Successfully created an ExampleNFT:
+
+----- Move Object (***[1]) -----
+Owner: Account Address ( (***[ )
+Version: 1
+Storage Rebate: 25
+Previous Transaction: tv/MWuMQJgfgdPhX1HBTaOKbTTItZFgDDmSEqgt3B2E=
+----- Data -----
+type: 0x2::devnet_nft::DevNetNFT
+description: An NFT created by the Sui Command Line Tool
+id: (***[
+name: Example NFT
+url: ipfs://bafkreibngqhl3gaa7daob4i2vccziay2jjlp435cf66vhono7nrvww53ty
+```
+
+### 2. Create an NFT with specific image
+```
+sui client create-example-nft --name "<YOUR_NFT_NAME>" --url "<URL_TO_IMAGE_YOU_LIKE>"
+```
+You should see output similar output. 
+
+### 3. Merge two objects into one
+```
+JSON=$(sui client gas --json | jq -r)
+FIRST_OBJECT_ID=$(echo $JSON | jq -r .[0].id.id)
+SECOND_OBJECT_ID=$(echo $JSON | jq -r .[1].id.id)
+sui client merge-coin --primary-coin ${FIRST_OBJECT_ID} --coin-to-merge ${SECOND_OBJECT_ID} --gas-budget 1000
+```
+
+You should see output like this:
+```
+----- Certificate ----
+Transaction Hash: VFCb0bz8OXB8mFjjsJLsUCVnZSC8dIV++2OjKLNu//c=
+Transaction Signature: AA==@B54xgjHBvjm/Q0bVs07jJaT2+K8hs4Vx2e1ZYm1aTsLK6XGPzwaqhlnNB1uyg3uK/HkOuB3WRGtyy2o/l4ElCg==@RQaPWLzW3kbtq/Fp0Y7/xX9pAfvCQ0JhINZoE71dPcU=
+Signed Authorities Bitmap: RoaringBitmap<[0, 1, 3]>
+Transaction Kind : Call
+Package ID : 0x2
+Module : coin
+Function : join
+Arguments : ["0x7dd750192ccdb481c3d58cb868cd9445bab547b", "0x30a49d2b5f02fdb2aeaa702bb013abe2a12a2706"]
+Type Arguments : ["0x2::sui::SUI"]
+----- Merge Coin Results ----
+Updated Coin : Coin { id: 0x07dd750192ccdb481c3d58cb868cd9445bab547b, value: 176513 }
+Updated Gas : Coin { id: 0x497761cd29b921166daf138145b9a76edb403d1c, value: 49553 }
+```
+
+You can see that two first objects are now merged into one and gas has been payed by third object.
+```
+sui client gas
+```
 
 ## Useful commands
 Check status
