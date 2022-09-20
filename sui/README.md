@@ -24,7 +24,7 @@ sudo apt update && sudo apt upgrade -y
 
 ### 2. Install dependencies
 ```
-sudo apt install wget jq git libclang-dev pkg-confi ca-certificates build-essential libssl-dev libudev-dev clang pkg-config cmake -y
+sudo apt install wget jq git libclang-dev pkg-config ca-certificates build-essential libssl-dev libudev-dev clang pkg-config cmake -y
 ```
 
 ### 3. Install Rust
