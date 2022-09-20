@@ -201,7 +201,7 @@ Updated Coin : Coin { id: 0x07dd750192ccdb481c3d58cb868cd9445bab547b, value: 176
 Updated Gas : Coin { id: 0x497761cd29b921166daf138145b9a76edb403d1c, value: 49553 }
 ```
 
-You can see that two first objects are now merged into one and gas has been payed by third object.
+You can see that two first objects are now merged into one and gas has been payed by third object:
 ```
 sui client gas
 ```
