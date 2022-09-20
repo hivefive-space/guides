@@ -7,7 +7,8 @@ Sui is a decentralized, high-bandwidth, low-latency smart contract platform usin
 
 ## Information
 - Official manual: https://docs.sui.io/build/fullnode
-- Node health: https://node.sui.zvalid.com/
+- Node health: https://node.sui.zvalid.com
+- Explorer: https://explorer.devnet.sui.io
 
 ## Minimum hardware requirements
 - CPU: 2 CPU
