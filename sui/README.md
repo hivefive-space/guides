@@ -239,7 +239,7 @@ git fetch upstream
 git stash
 git checkout --track upstream/devnet
 cargo build --release
-mv $HOME/sui/target/release/{sui,sui-node,sui-faucet} /usr/local/bin/
+sudo mv $HOME/sui/target/release/{sui,sui-node,sui-faucet} /usr/local/bin/
 sudo systemctl restart suid
 ```
 
