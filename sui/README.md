@@ -42,7 +42,7 @@ git remote add upstream https://github.com/MystenLabs/sui
 git fetch upstream
 git checkout --track upstream/devnet
 cargo build --release
-mv $HOME/sui/target/release/{sui,sui-node,sui-faucet} /usr/local/bin/
+sudo mv $HOME/sui/target/release/{sui,sui-node,sui-faucet} /usr/local/bin/
 ```
 
 ### 5. Create configs
